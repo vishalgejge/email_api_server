@@ -19,9 +19,9 @@ function App() {
   const SubmitForm= async(e)=>{
     e.preventDefault()
 
-   await axios.post(`http://localhost:8001/createPdf`,data)//create pdf next=> get pdf
+   await axios.post(`https://email-api-server.vercel.app/createPdf`,data)//create pdf next=> get pdf
    .then(()=>
-        axios.get(`http://localhost:8001/fetchPdf`,{responseType:'blob'})//to fetch the generated pdf
+        axios.get(`https://email-api-server.vercel.app/fetchPdf`,{responseType:'blob'})//to fetch the generated pdf
         .then((res)=>{
           const pdfBlob = new Blob([res.data],{type:'application/pdf'}) 
           saveAs(pdfBlob,'InvoiceDocument.pdf')  //to save we use file saver
@@ -35,7 +35,7 @@ function App() {
           setPrice3(0)
         })
         .then(()=>
-          axios.post("http://localhost:8001/sendPdf",{email:email})
+          axios.post("https://email-api-server.vercel.app/sendPdf",{email:email})
           .then(response=>{
             console.log(response);
             alert(response.data)
