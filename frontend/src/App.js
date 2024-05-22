@@ -9,7 +9,7 @@ function App() {
     e.preventDefault();
 
     try {
-      const response = await axios.post('https://your-server-url/api/email/sendMail', { email });
+      const response = await axios.post('https://email-api-server.vercel.app/api/email/sendMail', { email });
       console.log(response.data);
       alert(response.data);
 
