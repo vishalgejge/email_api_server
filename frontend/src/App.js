@@ -23,7 +23,7 @@ function App() {
 
   return (
     <div className="main-block">
-      <h1>Send Simple Mail</h1>
+      <h1>Send Simple Mail - }</h1>
       <form onSubmit={handleSubmit}>
         <div className="info">
           <input
