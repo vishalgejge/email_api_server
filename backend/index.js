@@ -1,8 +1,9 @@
 const express = require('express');
-const app = express();
-const env = require('dotenv');
+const bodyParser = require('body-parser');
+const emailRoute = require('./routes');
 const cors = require('cors');
-const pdfRoute = require('./pdfRoutes');
+
+const app = express();
 
 env.config();
 
@@ -14,9 +15,6 @@ app.use(cors({
 }));
 
 app.use(express.json());
-
-// Define your API routes
-app.use('/api/pdf', pdfRoute);
 
 // Start the server
 const port = process.env.PORT || 8000;
